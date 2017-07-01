@@ -2,15 +2,38 @@
   <function name="f1">
     <type>hidden</type>
     <expression>x ^ 3</expression>
-    <argument default="1" optional="yes">x</argument>
-    <noise>1</noise>
+    <argument name ="x">
+      <default>1</default>
+      <values>1,2,3,4</values>
+      <integer>1</integer>
+      <lowerbound>1</lowerbound>
+      <upperbound>10</upperbound>
+      <step>1</step>
+    </argument>
+    <noise>10^-5</noise>
     <query>10</query>
     <budget>100</budget>
+    <owner>LL</owner>
+    <evallatency>10</evallatency>
   </function>
   <function name="f2">
     <type>learned</type>
     <expression>2 * x + y</expression>
-    <argument default="1" optional="no">x</argument>
-    <argument default="1" optional="no">y</argument>
+    <argument name ="x">
+      <default>1</default>
+      <values>0,20</values>
+      <integer>1</integer>
+      <lowerbound>0</lowerbound>
+      <upperbound>20</upperbound>
+      <step>2</step>
+    </argument>
+    <argument name ="y">
+      <default>1</default>
+      <values>0.1,0.2,0.3</values>
+      <integer>0</integer>
+      <lowerbound>0</lowerbound>
+      <upperbound>1</upperbound>
+    </argument>
+    <owner>CMU-robotics</owner>
   </function>
 </functions>
