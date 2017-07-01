@@ -122,7 +122,7 @@ class Expression():
                 f = item.index_
                 frm = '({n1}{f}{n2})'
 
-                nstack.append(frm.format(n1=n1,n2=n2,f=f))
+                nstack.append(frm.format(n1=n1, n2=n2, f=f))
             elif type_ == TOP1:
                 n1 = nstack.pop()
                 f = item.index_
@@ -313,29 +313,20 @@ class Parser():
         return False
 
     def isVar(self):
-        str = ''
+        str = ""
         inQuotes = False
         for i in range(self.pos, len(self.expression)):
             c = self.expression[i]
             if c.lower() == c.upper():
-                if ((i == self.pos and c != '"') or (not (c in '_."') and (c < '0' or c > '9'))) and not inQuotes :
+                if ((i == self.pos and c != "\"") or (not (c in "_.\"") and (c < "0" or c > "9"))) and not inQuotes:
                     break
-            if c == '"':
+            if c == "\"":
                 inQuotes = not inQuotes
             str += c
         if str:
             self.tokenindex = str
             self.tokenprio = 4
             self.pos += len(str)
-            return True
-        return False
-
-    def isComment(self):
-        code = self.expression[self.pos - 1]
-        if code == '/' and self.expression[self.pos] == '*':
-            self.pos = self.expression.index('*/', self.pos) + 2
-            if self.pos == 1:
-                self.pos = len(self.expression)
             return True
         return False
 
@@ -360,10 +351,10 @@ class Parser():
 
     def isNumber(self):
         r = False
-        str = ''
+        str = ""
         while self.pos < len(self.expression):
             code = self.expression[self.pos]
-            if (code >= '0' and code <= '9') or code == '.':
+            if (code >= "0" and code <= "9") or code == ".":
                 str += self.expression[self.pos]
                 self.pos += 1
                 self.tokennumber = float(str)
@@ -374,13 +365,13 @@ class Parser():
 
     def isString(self):
         r = False
-        str = ''
+        str = ""
         startpos = self.pos
         if self.pos < len(self.expression) and self.expression[self.pos] == "'":
             self.pos += 1
             while self.pos < len(self.expression):
                 code = self.expression[self.pos]
-                if code != '\'' or (str != '' and str[-1] == '\\'):
+                if code != "\"" or (str != "" and str[-1] == "\\"):
                     str += self.expression[self.pos]
                     self.pos += 1
                 else:
@@ -404,7 +395,6 @@ class Parser():
                     self.pos += L
                     return True
         return False
-
 
     def parse(self, expr):
         self.errormsg = ""
@@ -509,19 +499,3 @@ class Parser():
 
     def evaluate(self, expr, variables):
         return self.parse(expr).evaluate(variables)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

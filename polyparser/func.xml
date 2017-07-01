@@ -6,7 +6,8 @@
   </function>
   <function name="f2">
     <type>learned</type>
-    <expression>2 * x</expression>
-    <argument default="1" optional="yes">x</argument>
+    <expression>2 * x + y</expression>
+    <argument default="1" optional="no">x</argument>
+    <argument default="1" optional="no">y</argument>
   </function>
 </functions>
