@@ -3,6 +3,9 @@
     <type>hidden</type>
     <expression>x ^ 3</expression>
     <argument default="1" optional="yes">x</argument>
+    <noise>1</noise>
+    <query>10</query>
+    <budget>100</budget>
   </function>
   <function name="f2">
     <type>learned</type>
