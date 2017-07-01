@@ -3,14 +3,14 @@
     <type>hidden</type>
     <locked>0</locked>
     <expression>x ^ 3</expression>
-    <argument name ="x">
+    <option name ="x">
       <default>1</default>
       <values>1,2,3,4</values>
       <integer>1</integer>
       <lowerbound>1</lowerbound>
       <upperbound>10</upperbound>
       <step>1</step>
-    </argument>
+    </option>
     <noise>10^-5</noise>
     <query>10</query>
     <budget>100</budget>
@@ -21,21 +21,21 @@
     <type>learned</type>
     <locked>0</locked>
     <expression>2 * x + y</expression>
-    <argument name ="x">
+    <option name ="x">
       <default>1</default>
       <values>0,20</values>
       <integer>1</integer>
       <lowerbound>0</lowerbound>
       <upperbound>20</upperbound>
       <step>2</step>
-    </argument>
-    <argument name ="y">
+    </option>
+    <option name ="y">
       <default>1</default>
       <values>0.1,0.2,0.3</values>
       <integer>0</integer>
       <lowerbound>0</lowerbound>
       <upperbound>1</upperbound>
-    </argument>
+    </option>
     <owner>CMU-robotics</owner>
   </function>
 </functions>
