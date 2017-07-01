@@ -1,0 +1,12 @@
+<functions>
+  <function name="f1">
+    <type>hidden</type>
+    <expression>x ^ 3</expression>
+    <argument default="1" optional="yes">x</argument>
+  </function>
+  <function name="f2">
+    <type>learned</type>
+    <expression>2 * x</expression>
+    <argument default="1" optional="yes">x</argument>
+  </function>
+</functions>

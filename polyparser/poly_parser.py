@@ -405,6 +405,7 @@ class Parser():
                     return True
         return False
 
+
     def parse(self, expr):
         self.errormsg = ""
         self.success = True
