@@ -1,5 +1,7 @@
 import os
 import xml.etree.ElementTree as et
+import numpy as np
+import random
 
 class function_utilities():
 
@@ -43,6 +45,34 @@ class function_utilities():
                     if functions.find("type").text == type:
                         functions.find("expression").text = expression
                 exptree.write(expr_file)
+
+
+    class PolyGen():
+
+        def __init__(self):
+            self.expression = ""
+
+        def generatepoly(self, vars, domain, degree, terms):
+            expression = ""
+            coeff = np.random.uniform(domain[0], domain[1], terms-1)
+            terms_degree = np.random.random_integers(1, degree, terms-1)
+            coeff_0 = np.random.uniform(domain[0], domain[1])
+            L = len(vars)
+            expression = str(coeff_0)
+            for i in range(0, L):
+                expression = expression + "+" + str(coeff[i]) + "*" + vars[i] + "^" + str(terms_degree[i])
+
+            for i in range(L, len(terms_degree)):
+                expr_tmp = ""
+                for j in range(1, terms_degree[i]+1):
+                    next_term = np.random.randint(0, L)
+                    if expr_tmp != "":
+                        expr_tmp = expr_tmp + "*" + vars[next_term]
+                    else:
+                        expr_tmp = vars[next_term]
+                expression = expression + "+" + expr_tmp
+
+            return expression
 
 
 
