@@ -1,3 +1,4 @@
+from poly_parser import Parser
 import os
 import xml.etree.ElementTree as et
 import numpy as np
@@ -73,6 +74,33 @@ class function_utilities():
                 expression = expression + "+" + expr_tmp
 
             return expression
+
+    class Evaluator():
+
+        def __init__(self, expr_file):
+            self.exprfile = expr_file
+            self.type = "hidden"
+
+
+        def eval_function(self, values):
+            parser = Parser()
+            # read function expression
+            expreader = function_utilities.Reader(self.exprfile)
+            expreader.readexpr(self.type)
+            # parse the expression and evaluate
+
+            expr = parser.parse(expreader.expression)
+            variables = expr.variables()
+
+            input = dict()
+
+            i = 0
+            for idx in variables:
+                input[idx] = values[i]
+                i += 1
+
+            return expr.evaluate(input)
+
 
 
 

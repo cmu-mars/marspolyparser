@@ -50,4 +50,3 @@ class BasicTestSuite(unittest.TestCase):
 
 suite = unittest.TestLoader().loadTestsFromTestCase(BasicTestSuite)
 unittest.TextTestRunner(verbosity=2).run(suite)
-
