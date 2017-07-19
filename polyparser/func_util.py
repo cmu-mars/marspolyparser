@@ -2,7 +2,6 @@ from poly_parser import Parser
 import os
 import xml.etree.ElementTree as et
 import numpy as np
-import random
 
 class function_utilities():
 
@@ -100,7 +99,3 @@ class function_utilities():
                 i += 1
 
             return expr.evaluate(input)
-
-
-
-
